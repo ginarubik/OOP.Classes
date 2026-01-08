@@ -5,11 +5,11 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter number of designs: ");
+        System.out.print("Enter number of items: ");
         int n = sc.nextInt();
-        sc.nextLine(); // consume newline
+        sc.nextLine();
 
-        Design[] designs = new Design[n];
+        RoomList[] roomList = new RoomList[n];
 
         for (int i = 0; i < n; i++) {
             System.out.println("\nSelect category:");
@@ -37,7 +37,7 @@ public class Main {
                     String size = sc.nextLine();
                     System.out.print("Enter material: ");
                     String material = sc.nextLine();
-                    designs[i] = new Clothes(name, price, brand, size, material);
+                    roomList[i] = new Clothes(name, price, brand, size, material);
                     break;
 
                 case 2:
@@ -45,13 +45,13 @@ public class Main {
                     String type = sc.nextLine();
                     System.out.print("Enter metal: ");
                     String metal = sc.nextLine();
-                    designs[i] = new Jewellery(name, price, brand, type, metal);
+                    roomList[i] = new Jewellery(name, price, brand, type, metal);
                     break;
 
                 case 3:
                     System.out.print("Enter category: ");
                     String category = sc.nextLine();
-                    designs[i] = new Accessories(name, price, brand, category);
+                    roomList[i] = new Accessories(name, price, brand, category);
                     break;
 
                 case 4:
@@ -59,21 +59,22 @@ public class Main {
                     String shade = sc.nextLine();
                     System.out.print("Enter skin type: ");
                     String skinType = sc.nextLine();
-                    designs[i] = new Cosmetics(name, price, brand, shade, skinType);
+                    roomList[i] = new Cosmetics(name, price, brand, shade, skinType);
                     break;
 
                 default:
                     System.out.println("Invalid choice");
-                    i--; // repeat this iteration
+                    i--;
             }
         }
 
-        System.out.println("\n===== DESIGN DETAILS =====");
-        for (Design d : designs) {
-            System.out.println("\n--------------------------");
-            d.displayDetails();
+        System.out.println("\n===== ROOM LIST DETAILS =====");
+        for (RoomList r : roomList) {
+            System.out.println("\n---------------------------");
+            r.displayDetails();
         }
 
         sc.close();
     }
 }
+
